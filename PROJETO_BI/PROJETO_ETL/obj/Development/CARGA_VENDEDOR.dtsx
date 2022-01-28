@@ -11,36 +11,10 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="CARGA_VENDEDOR"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{DFA9D2E1-6E52-4204-AC0B-BA5D2220AA75}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{69367B8F-3697-44A7-A13E-07F588AACB25}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[COMP-PC\.COMERCIO_OLTP]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{320B39B6-ECD0-46D1-8692-6394174F3B19}"
-      DTS:ObjectName="COMP-PC\.COMERCIO_OLTP">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=COMP-PC\;Initial Catalog=COMERCIO_OLTP;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[COMP-PC\.COMERCIO_STAGE]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B565E9DE-7952-4235-AB6C-8675A5AB92AF}"
-      DTS:ObjectName="COMP-PC\.COMERCIO_STAGE">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=COMP-PC\;Initial Catalog=COMERCIO_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -194,8 +168,8 @@
               <connections>
                 <connection
                   refId="Package\STAGE VENDEDOR\ST_VENDEDOR.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[COMP-PC\.COMERCIO_STAGE]"
-                  connectionManagerRefId="Package.ConnectionManagers[COMP-PC\.COMERCIO_STAGE]"
+                  connectionManagerID="{0B27633E-045B-425F-96E5-60E8DDB0BF75}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[COMERCIO_STAGE]"
                   description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
                   name="OleDbConnection" />
               </connections>
@@ -415,7 +389,7 @@
                   dataType="System.Int32"
                   description="Especifica o modo usado para acessar o banco de dados."
                   name="AccessMode"
-                  typeConverter="AccessMode">2</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.String"
                   description="Os mapeamentos entre os parâmetros no comando SQL e as variáveis."
@@ -424,8 +398,8 @@
               <connections>
                 <connection
                   refId="Package\STAGE VENDEDOR\VENDEDOR.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[COMP-PC\.COMERCIO_OLTP]"
-                  connectionManagerRefId="Package.ConnectionManagers[COMP-PC\.COMERCIO_OLTP]"
+                  connectionManagerID="{7AB0BB57-9453-4773-BD1A-6E121C0CDD51}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[COMERCIO_OLTP]"
                   description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
                   name="OleDbConnection" />
               </connections>
@@ -474,6 +448,17 @@
                       lineageId="Package\STAGE VENDEDOR\VENDEDOR.Outputs[Saída de Origem OLE DB].Columns[ID_GERENTE]"
                       name="ID_GERENTE"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGE VENDEDOR\VENDEDOR.Outputs[Saída de Origem OLE DB].Columns[EMAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGE VENDEDOR\VENDEDOR.Outputs[Saída de Origem OLE DB].ExternalColumns[EMAIL]"
+                      length="30"
+                      lineageId="Package\STAGE VENDEDOR\VENDEDOR.Outputs[Saída de Origem OLE DB].Columns[EMAIL]"
+                      name="EMAIL"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -497,6 +482,12 @@
                       refId="Package\STAGE VENDEDOR\VENDEDOR.Outputs[Saída de Origem OLE DB].ExternalColumns[ID_GERENTE]"
                       dataType="i4"
                       name="ID_GERENTE" />
+                    <externalMetadataColumn
+                      refId="Package\STAGE VENDEDOR\VENDEDOR.Outputs[Saída de Origem OLE DB].ExternalColumns[EMAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="EMAIL" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -523,6 +514,13 @@
                       length="1"
                       lineageId="Package\STAGE VENDEDOR\VENDEDOR.Outputs[Saída de Erro de Origem OLE DB].Columns[SEXO]"
                       name="SEXO" />
+                    <outputColumn
+                      refId="Package\STAGE VENDEDOR\VENDEDOR.Outputs[Saída de Erro de Origem OLE DB].Columns[EMAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\STAGE VENDEDOR\VENDEDOR.Outputs[Saída de Erro de Origem OLE DB].Columns[EMAIL]"
+                      name="EMAIL" />
                     <outputColumn
                       refId="Package\STAGE VENDEDOR\VENDEDOR.Outputs[Saída de Erro de Origem OLE DB].Columns[ID_GERENTE]"
                       dataType="i4"
@@ -578,7 +576,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B565E9DE-7952-4235-AB6C-8675A5AB92AF}"
+          SQLTask:Connection="{7AB0BB57-9453-4773-BD1A-6E121C0CDD51}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[ST_VENDEDOR]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -606,13 +604,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="205.6,41.6"
-          Id="Package\TRUNCATE ST_VENDEDOR"
-          TopLeft="219.785717424081,102.029412697756" />
-        <NodeLayout
           Size="167.2,41.6"
           Id="Package\STAGE VENDEDOR"
           TopLeft="231.928574262833,218.441178615531" />
+        <NodeLayout
+          Size="205.6,41.6"
+          Id="Package\TRUNCATE ST_VENDEDOR"
+          TopLeft="219.785717424081,102.029412697756" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restrição]"
           TopLeft="319.057145843457,143.629412697756">
@@ -644,17 +642,21 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="132.8,41.6"
-          Id="Package\STAGE VENDEDOR\VENDEDOR"
-          TopLeft="180.833333333333,169.333333333333" />
-        <NodeLayout
           Size="150.4,41.6"
           Id="Package\STAGE VENDEDOR\ST_VENDEDOR"
           TopLeft="748,341.333333333333" />
         <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\STAGE VENDEDOR\Conversão de Dados"
+          TopLeft="730.5,173.833333333333" />
+        <NodeLayout
           Size="174.4,41.6"
           Id="Package\STAGE VENDEDOR\TRATAMENTO SEXO"
           TopLeft="453.833333333333,169.666666666667" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\STAGE VENDEDOR\VENDEDOR"
+          TopLeft="180.833333333333,169.333333333333" />
         <EdgeLayout
           Id="Package\STAGE VENDEDOR.Paths[Saída de Origem OLE DB]"
           TopLeft="313.633333333333,190.3">
@@ -669,32 +671,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="132.7,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\STAGE VENDEDOR\Conversão de Dados"
-          TopLeft="730.5,173.833333333333" />
-        <EdgeLayout
-          Id="Package\STAGE VENDEDOR.Paths[Saída de Coluna Derivada]"
-          TopLeft="628.233333333333,192.55">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="102.266666666667,0"
-              Start="0,0"
-              End="94.7666666666667,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="94.7666666666667,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -725,11 +701,33 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\STAGE VENDEDOR.Paths[Saída de Coluna Derivada]"
+          TopLeft="628.233333333333,192.55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102.266666666667,0"
+              Start="0,0"
+              End="94.7666666666667,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="94.7666666666667,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\STAGE VENDEDOR\VENDEDOR">
+    design-time-name="Package\STAGE VENDEDOR\ST_VENDEDOR">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -742,7 +740,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\STAGE VENDEDOR\ST_VENDEDOR">
+    design-time-name="Package\STAGE VENDEDOR\VENDEDOR">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
