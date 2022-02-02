@@ -1,40 +1,40 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="1/27/2022 5:43:26 PM"
+  DTS:CreationDate="1/28/2022 8:33:51 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="COMP-PC"
   DTS:CreatorName="COMP-PC\Usuario"
-  DTS:DTSID="{2BB11808-D2C4-4DF0-9640-707C6180E6A2}"
+  DTS:DTSID="{185F28EC-CDD2-406D-8D8D-B083A375B35E}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.170"
   DTS:LocaleID="1046"
-  DTS:ObjectName="CARGA_FORMA"
+  DTS:ObjectName="CARGA_NOTA"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{E5693514-321A-4EB3-8471-6BACB88629E6}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{B1148619-B4FD-4301-BBEC-4F17C8B09503}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Contêiner da Sequência"
+      DTS:refId="Package\CARGA STAGE"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Contêiner da Sequência"
-      DTS:DTSID="{C8DFA665-D466-46C7-BC87-9D03AD83ECBD}"
+      DTS:DTSID="{2B5AC479-014D-4B8B-990C-6F88C4ED7586}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Contêiner da Sequência">
+      DTS:ObjectName="CARGA STAGE">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados"
+          DTS:refId="Package\CARGA STAGE\STAGE NOTA"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Tarefa Fluxo de Dados"
-          DTS:DTSID="{A2A699B9-A55A-4262-A006-D6BECFAB4B98}"
+          DTS:DTSID="{F9609051-79E3-4A69-BF06-6F98B95A04BA}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Tarefa Fluxo de Dados"
+          DTS:ObjectName="STAGE NOTA"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -42,11 +42,11 @@
               version="1">
               <components>
                 <component
-                  refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA"
+                  refId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="Origem OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;7"
                   description="Origem OLE DB"
-                  name="STAGE FORMA"
+                  name="NOTA_FISCAL"
                   usesDispositions="true"
                   version="7">
                   <properties>
@@ -66,9 +66,8 @@
                       dataType="System.String"
                       description="O comando SQL a ser executado."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [IDFORMA]
-      ,[FORMA]
-  FROM [dbo].[FORMA_PAGAMENTO]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [IDNOTA]
+FROM [dbo].[NOTA_FISCAL]</property>
                     <property
                       dataType="System.String"
                       description="A variável que contém o comando SQL a ser executado."
@@ -93,7 +92,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Connections[OleDbConnection]"
+                      refId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Connections[OleDbConnection]"
                       connectionManagerID="{7AB0BB57-9453-4773-BD1A-6E121C0CDD51}:external"
                       connectionManagerRefId="Project.ConnectionManagers[COMERCIO_OLTP]"
                       description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
@@ -101,71 +100,47 @@
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB]"
+                      refId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Origem OLE DB]"
                       name="Saída de Origem OLE DB">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB].Columns[IDFORMA]"
+                          refId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Origem OLE DB].Columns[IDNOTA]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversão"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB].ExternalColumns[IDFORMA]"
-                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB].Columns[IDFORMA]"
-                          name="IDFORMA"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB].Columns[FORMA]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversão"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB].ExternalColumns[FORMA]"
-                          length="50"
-                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB].Columns[FORMA]"
-                          name="FORMA"
+                          externalMetadataColumnId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Origem OLE DB].ExternalColumns[IDNOTA]"
+                          lineageId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Origem OLE DB].Columns[IDNOTA]"
+                          name="IDNOTA"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB].ExternalColumns[IDFORMA]"
+                          refId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Origem OLE DB].ExternalColumns[IDNOTA]"
                           dataType="i4"
-                          name="IDFORMA" />
-                        <externalMetadataColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB].ExternalColumns[FORMA]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="FORMA" />
+                          name="IDNOTA" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Erro de Origem OLE DB]"
+                      refId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Erro de Origem OLE DB]"
                       isErrorOut="true"
                       name="Saída de Erro de Origem OLE DB">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Erro de Origem OLE DB].Columns[IDFORMA]"
+                          refId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Erro de Origem OLE DB].Columns[IDNOTA]"
                           dataType="i4"
-                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Erro de Origem OLE DB].Columns[IDFORMA]"
-                          name="IDFORMA" />
+                          lineageId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Erro de Origem OLE DB].Columns[IDNOTA]"
+                          name="IDNOTA" />
                         <outputColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Erro de Origem OLE DB].Columns[FORMA]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Erro de Origem OLE DB].Columns[FORMA]"
-                          name="FORMA" />
-                        <outputColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                          refId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                          lineageId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                          refId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                          lineageId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -174,11 +149,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA"
+                  refId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
                   description="Destino OLE DB"
-                  name="ST_FORMA"
+                  name="ST_NOTA"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -189,7 +164,7 @@
                     <property
                       dataType="System.String"
                       description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
-                      name="OpenRowset">[dbo].[ST_FORMA]</property>
+                      name="OpenRowset">[dbo].[ST_NOTA]</property>
                     <property
                       dataType="System.String"
                       description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
@@ -231,7 +206,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Connections[OleDbConnection]"
+                      refId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Connections[OleDbConnection]"
                       connectionManagerID="{0B27633E-045B-425F-96E5-60E8DDB0BF75}:external"
                       connectionManagerRefId="Project.ConnectionManagers[COMERCIO_STAGE]"
                       description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
@@ -239,60 +214,46 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Inputs[Entrada de Destino OLE DB]"
+                      refId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Inputs[Entrada de Destino OLE DB]"
                       errorOrTruncationOperation="Inserir"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="Entrada de Destino OLE DB">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Inputs[Entrada de Destino OLE DB].Columns[IDFORMA]"
+                          refId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Inputs[Entrada de Destino OLE DB].Columns[IDNOTA]"
                           cachedDataType="i4"
-                          cachedName="IDFORMA"
-                          externalMetadataColumnId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDFORMA]"
-                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB].Columns[IDFORMA]" />
-                        <inputColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Inputs[Entrada de Destino OLE DB].Columns[FORMA]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="FORMA"
-                          externalMetadataColumnId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Inputs[Entrada de Destino OLE DB].ExternalColumns[FORMA]"
-                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB].Columns[FORMA]" />
+                          cachedName="IDNOTA"
+                          externalMetadataColumnId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDNOTA]"
+                          lineageId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Origem OLE DB].Columns[IDNOTA]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDFORMA]"
+                          refId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDNOTA]"
                           dataType="i4"
-                          name="IDFORMA" />
-                        <externalMetadataColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Inputs[Entrada de Destino OLE DB].ExternalColumns[FORMA]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="FORMA" />
+                          name="IDNOTA" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Outputs[Saída de Erro de Destino OLE DB]"
+                      refId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Outputs[Saída de Erro de Destino OLE DB]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Saída de Erro de Destino OLE DB"
-                      synchronousInputId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Inputs[Entrada de Destino OLE DB]">
+                      synchronousInputId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Inputs[Entrada de Destino OLE DB]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                          refId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                          lineageId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                          refId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                          lineageId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -303,57 +264,57 @@
               </components>
               <paths>
                 <path
-                  refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados.Paths[Saída de Origem OLE DB]"
-                  endId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA.Inputs[Entrada de Destino OLE DB]"
+                  refId="Package\CARGA STAGE\STAGE NOTA.Paths[Saída de Origem OLE DB]"
+                  endId="Package\CARGA STAGE\STAGE NOTA\ST_NOTA.Inputs[Entrada de Destino OLE DB]"
                   name="Saída de Origem OLE DB"
-                  startId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA.Outputs[Saída de Origem OLE DB]" />
+                  startId="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL.Outputs[Saída de Origem OLE DB]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Contêiner da Sequência\TRUNCATE ST_FORMA"
+          DTS:refId="Package\CARGA STAGE\TRUNCATE ST_NOTA"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Tarefa Executar SQL"
-          DTS:DTSID="{530435E5-BBD3-4FD8-9D27-0B5A97E943B7}"
+          DTS:DTSID="{A42B1253-D817-4B7F-8816-016F558A72A4}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="TRUNCATE ST_FORMA"
+          DTS:ObjectName="TRUNCATE ST_NOTA"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{0B27633E-045B-425F-96E5-60E8DDB0BF75}"
-              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_FORMA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[ST_NOTA]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Contêiner da Sequência.PrecedenceConstraints[Restrição]"
+          DTS:refId="Package\CARGA STAGE.PrecedenceConstraints[Restrição]"
           DTS:CreationName=""
-          DTS:DTSID="{438F0D26-A984-4741-93FF-192031CE27A8}"
-          DTS:From="Package\Contêiner da Sequência\TRUNCATE ST_FORMA"
+          DTS:DTSID="{5CD1C9E4-C04F-4B59-A65E-4B9E238FA560}"
+          DTS:From="Package\CARGA STAGE\TRUNCATE ST_NOTA"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Restrição"
-          DTS:To="Package\Contêiner da Sequência\Tarefa Fluxo de Dados" />
+          DTS:To="Package\CARGA STAGE\STAGE NOTA" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Contêiner da Sequência 1"
+      DTS:refId="Package\Contêiner da Sequência"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Contêiner da Sequência"
-      DTS:DTSID="{532ADCE9-C0CB-470D-9F1B-C5DE358F7AEF}"
+      DTS:DTSID="{64174E9D-BD0C-42EA-8CEB-CF173CFD1F84}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Contêiner da Sequência 1">
+      DTS:ObjectName="Contêiner da Sequência">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados"
+          DTS:refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Tarefa Fluxo de Dados"
-          DTS:DTSID="{11E312A3-AD3B-462D-93FC-6785F91B18B3}"
+          DTS:DTSID="{A89B4376-6F17-42FD-BA83-9FD84496D8FD}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Tarefa Fluxo de Dados"
@@ -364,7 +325,7 @@
               version="1">
               <components>
                 <component
-                  refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB"
+                  refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
                   description="Destino OLE DB"
@@ -379,7 +340,7 @@
                     <property
                       dataType="System.String"
                       description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
-                      name="OpenRowset">[dbo].[DIM_FORMA]</property>
+                      name="OpenRowset">[dbo].[DIM_NOTA]</property>
                     <property
                       dataType="System.String"
                       description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
@@ -421,7 +382,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Connections[OleDbConnection]"
+                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Connections[OleDbConnection]"
                       connectionManagerID="{59B258F2-5280-42DC-9C06-88A401B355F5}:external"
                       connectionManagerRefId="Project.ConnectionManagers[COMERCIO_DW]"
                       description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
@@ -429,64 +390,50 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
                       errorOrTruncationOperation="Inserir"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="Entrada de Destino OLE DB">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[IDFORMA]"
+                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[IDNOTA]"
                           cachedDataType="i4"
-                          cachedName="IDFORMA"
-                          externalMetadataColumnId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDFORMA]"
-                          lineageId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDFORMA]" />
-                        <inputColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[FORMA]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="FORMA"
-                          externalMetadataColumnId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[FORMA]"
-                          lineageId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[FORMA]" />
+                          cachedName="IDNOTA"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDNOTA]"
+                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDNOTA]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDSK]"
+                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDSK]"
                           dataType="i4"
                           name="IDSK" />
                         <externalMetadataColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDFORMA]"
+                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDNOTA]"
                           dataType="i4"
-                          name="IDFORMA" />
-                        <externalMetadataColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[FORMA]"
-                          codePage="1252"
-                          dataType="str"
-                          length="30"
-                          name="FORMA" />
+                          name="IDNOTA" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB]"
+                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Saída de Erro de Destino OLE DB"
-                      synchronousInputId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB]">
+                      synchronousInputId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -495,7 +442,7 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB"
+                  refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="Origem OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;7"
                   description="Origem OLE DB"
@@ -519,12 +466,11 @@
                       dataType="System.String"
                       description="O comando SQL a ser executado."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [IDFORMA]
-      ,[FORMA]
-  FROM [dbo].[ST_FORMA]
-WHERE [IDFORMA] NOT IN (				SELECT  IDFORMA
-FROM [COMERCIO_DW].[dbo].DIM_FORMA
-		)</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [IDNOTA]
+  FROM [dbo].[ST_NOTA]
+  where IDNOTA not in (select IDNOTA
+						from [COMERCIO_DW].[dbo].[DIM_NOTA]
+						)</property>
                     <property
                       dataType="System.String"
                       description="A variável que contém o comando SQL a ser executado."
@@ -549,7 +495,7 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Connections[OleDbConnection]"
+                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Connections[OleDbConnection]"
                       connectionManagerID="{0B27633E-045B-425F-96E5-60E8DDB0BF75}:external"
                       connectionManagerRefId="Project.ConnectionManagers[COMERCIO_STAGE]"
                       description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
@@ -557,71 +503,47 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB]"
+                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB]"
                       name="Saída de Origem OLE DB">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDFORMA]"
+                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDNOTA]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversão"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDFORMA]"
-                          lineageId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDFORMA]"
-                          name="IDFORMA"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[FORMA]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversão"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[FORMA]"
-                          length="50"
-                          lineageId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[FORMA]"
-                          name="FORMA"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDNOTA]"
+                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDNOTA]"
+                          name="IDNOTA"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDFORMA]"
+                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDNOTA]"
                           dataType="i4"
-                          name="IDFORMA" />
-                        <externalMetadataColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[FORMA]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="FORMA" />
+                          name="IDNOTA" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB]"
+                      refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB]"
                       isErrorOut="true"
                       name="Saída de Erro de Origem OLE DB">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDFORMA]"
+                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDNOTA]"
                           dataType="i4"
-                          lineageId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDFORMA]"
-                          name="IDFORMA" />
+                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDNOTA]"
+                          name="IDNOTA" />
                         <outputColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[FORMA]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[FORMA]"
-                          name="FORMA" />
-                        <outputColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                          refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                          lineageId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -632,10 +554,10 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
               </components>
               <paths>
                 <path
-                  refId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados.Paths[Saída de Origem OLE DB]"
-                  endId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+                  refId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados.Paths[Saída de Origem OLE DB]"
+                  endId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
                   name="Saída de Origem OLE DB"
-                  startId="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB]" />
+                  startId="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB.Outputs[Saída de Origem OLE DB]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -647,11 +569,11 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restrição]"
       DTS:CreationName=""
-      DTS:DTSID="{FE53B63E-07E8-48F4-B9F3-E2994E81F3EE}"
-      DTS:From="Package\Contêiner da Sequência"
+      DTS:DTSID="{B97182D7-2E89-4133-B757-9BFB70BB2729}"
+      DTS:From="Package\CARGA STAGE"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restrição"
-      DTS:To="Package\Contêiner da Sequência 1" />
+      DTS:To="Package\Contêiner da Sequência" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
@@ -666,23 +588,23 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\Contêiner da Sequência\Tarefa Fluxo de Dados"
-          TopLeft="34.7857146141483,106.829414885597" />
+          Size="140.8,41.6"
+          Id="Package\CARGA STAGE\STAGE NOTA"
+          TopLeft="71.700001617841,125.452944350985" />
         <EdgeLayout
-          Id="Package\Contêiner da Sequência.PrecedenceConstraints[Restrição]"
-          TopLeft="126.871429143147,63.3705905840059">
+          Id="Package\CARGA STAGE.PrecedenceConstraints[Restrição]"
+          TopLeft="141.700001447542,60.758825213192">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.458824301591"
+              EndConnector="0,64.6941191377937"
               Start="0,0"
-              End="0,35.958824301591">
+              End="0,57.1941191377937">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.958824301591" />
+                    End="0,57.1941191377937" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -692,53 +614,41 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="186.4,41.6"
-          Id="Package\Contêiner da Sequência\TRUNCATE ST_FORMA"
-          TopLeft="33.3571436721455,21.7705905840059" />
+          Size="179.2,41.6"
+          Id="Package\CARGA STAGE\TRUNCATE ST_NOTA"
+          TopLeft="51.700001277243,19.1588252131919" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="256,203.2"
-          Size="256,246.4"
-          Id="Package\Contêiner da Sequência"
-          TopLeft="69.285715465643,87.1764718108524" />
+          PanelSize="284.8,222.4"
+          Size="284.8,265.6"
+          Id="Package\CARGA STAGE"
+          TopLeft="28.5714290579971,63.4705891254452" />
         <NodeLayout
           Size="184.8,41.6"
-          Id="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados"
-          TopLeft="27.7428653537012,39.8470613009377" />
+          Id="Package\Contêiner da Sequência\Tarefa Fluxo de Dados"
+          TopLeft="27.7428650131031,45.4470613009377" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="240.8,136.8"
-          Size="240.8,180"
-          Id="Package\Contêiner da Sequência 1"
-          TopLeft="454.285722022154,93.2941189554736" />
+          PanelSize="244.8,171.2"
+          Size="244.8,214.4"
+          Id="Package\Contêiner da Sequência"
+          TopLeft="434.285721681556,87.9411777039301" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restrição]"
-          TopLeft="325.285715465643,210.376471810852">
+          TopLeft="313.371429057997,195.705883414688">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="129.000006556511,-27.0823528553788"
+              EndConnector="120.914292623559,0"
               Start="0,0"
-              End="121.500006556511,-27.0823528553788">
+              End="113.414292623559,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="60.5000032782555,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="60.5000032782555,0"
-                    Point2="64.5000032782555,0"
-                    Point3="64.5000032782555,-4" />
-                  <mssgle:LineSegment
-                    End="64.5000032782555,-23.0823528553788" />
-                  <mssgle:CubicBezierSegment
-                    Point1="64.5000032782555,-23.0823528553788"
-                    Point2="64.5000032782555,-27.0823528553788"
-                    Point3="68.5000032782555,-27.0823528553788" />
-                  <mssgle:LineSegment
-                    End="121.500006556511,-27.0823528553788" />
+                    End="113.414292623559,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -751,32 +661,32 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Contêiner da Sequência\Tarefa Fluxo de Dados">
+    design-time-name="Package\CARGA STAGE\STAGE NOTA">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="148,41.6"
-          Id="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA"
-          TopLeft="159.785716913185,92.6764718108524" />
+          Size="144.8,41.6"
+          Id="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL"
+          TopLeft="233.357146737527,48.3235300123486" />
         <NodeLayout
-          Size="130.4,41.6"
-          Id="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA"
-          TopLeft="163.357145034537,222.088237910947" />
+          Size="135.2,41.6"
+          Id="Package\CARGA STAGE\STAGE NOTA\ST_NOTA"
+          TopLeft="233.35714622663,191.500002187841" />
         <EdgeLayout
-          Id="Package\Contêiner da Sequência\Tarefa Fluxo de Dados.Paths[Saída de Origem OLE DB]"
-          TopLeft="231.171430973861,134.276471810852">
+          Id="Package\CARGA STAGE\STAGE NOTA.Paths[Saída de Origem OLE DB]"
+          TopLeft="303.357146482078,89.9235300123486">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,87.8117661000948"
+              EndConnector="0,101.576472175493"
               Start="0,0"
-              End="0,80.3117661000948">
+              End="0,94.0764721754925">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,80.3117661000948" />
+                    End="0,94.0764721754925" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -789,7 +699,7 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\STAGE FORMA">
+    design-time-name="Package\CARGA STAGE\STAGE NOTA\NOTA_FISCAL">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -797,7 +707,7 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\ST_FORMA">
+    design-time-name="Package\CARGA STAGE\STAGE NOTA\ST_NOTA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -810,32 +720,32 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados">
+    design-time-name="Package\Contêiner da Sequência\Tarefa Fluxo de Dados">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="152,41.6"
-          Id="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB"
-          TopLeft="275.000004683222,94.0588248485513" />
+          Id="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB"
+          TopLeft="292.85714784447,103.235295565483" />
         <NodeLayout
           Size="152.8,41.6"
-          Id="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB"
-          TopLeft="275.000004683222,224.82353256483" />
+          Id="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB"
+          TopLeft="286.428576306421,285.235298117964" />
         <EdgeLayout
-          Id="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados.Paths[Saída de Origem OLE DB]"
-          TopLeft="351.200004683222,135.658824848551">
+          Id="Package\Contêiner da Sequência\Tarefa Fluxo de Dados.Paths[Saída de Origem OLE DB]"
+          TopLeft="365.842862075446,144.835295565483">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,89.1647077162785"
+              EndConnector="0,140.400002552481"
               Start="0,0"
-              End="0,81.6647077162785">
+              End="0,132.900002552481">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,81.6647077162785" />
+                    End="0,132.900002552481" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -848,7 +758,7 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Origem OLE DB">
+    design-time-name="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Origem OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -856,7 +766,7 @@ FROM [COMERCIO_DW].[dbo].DIM_FORMA
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Contêiner da Sequência 1\Tarefa Fluxo de Dados\Destino OLE DB">
+    design-time-name="Package\Contêiner da Sequência\Tarefa Fluxo de Dados\Destino OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
