@@ -387,7 +387,7 @@
         </Level>
         <Level dwd:design-time-name="cc46bd08-3bb4-4964-a4b4-8a141538e98a">
           <ID>IDSK</ID>
-          <Name>IDSK</Name>
+          <Name>CLIENTE</Name>
           <SourceAttributeID>IDSK</SourceAttributeID>
         </Level>
       </Levels>
