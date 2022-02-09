@@ -1,0 +1,5 @@
+portal adm:
+http://v-allandeo-ms/allan
+
+portal usuario
+http://v-allandeo-ms/Relatorios/browse/
