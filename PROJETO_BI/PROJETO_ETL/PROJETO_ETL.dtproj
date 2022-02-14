@@ -12,7 +12,7 @@
   <DataSourceViews />
   <DeploymentModelSpecificContent>
     <Manifest>
-      <SSIS:Project SSIS:ProtectionLevel="DontSaveSensitive" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
+      <SSIS:Project SSIS:ProtectionLevel="EncryptSensitiveWithUserKey" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
         <SSIS:Properties>
           <SSIS:Property SSIS:Name="ID">{b4d6f160-b3e3-4483-a5fd-9065b7553c72}</SSIS:Property>
           <SSIS:Property SSIS:Name="Name">PROJETO_ETL</SSIS:Property>
@@ -26,6 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">COMP-PC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAV6hCB+80QEKaOmcBF6ZpfAAAAAACAAAAAAAQZgAAAAEAACAAAAAJw7A5nMtfMv5Gd8AZDo0R+wuGN3AbBpG4fHoiX9xbugAAAAAOgAAAAAIAACAAAADuPaM/aRXB+8dDE9mjXPx781l4y/pqzhlWHsAHXCbD6JAAAABWRZnUZUhjcTxrUuUK3bBJsE9TL2wE66UAp8wkfdNJ2pYzUQ1Xj4SqSvXlZYGZYZ1pY9ZGzCCKdPLjCeWelLkLEL7XKeecjN2LyTFXNfe7umYevO+XwJ+f+O5IKD+VC60Sc1VGXxZPB7sSaSzjvk0EOmyRgNG41BBENPvZtcztMoMBuUjnzYbgjig83N5zRJxAAAAAu3ZmLlVAPAYzlgJ15acBbfiCTUpXb7gcNaTDMAB8u4e5n6mRcf555pZ643SrnGp7xbQfogQ+JnxHneKnJSBBZA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>

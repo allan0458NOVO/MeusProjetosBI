@@ -7,12 +7,12 @@
   DTS:CreatorName="COMP-PC\Usuario"
   DTS:DTSID="{A76E32F7-6BCC-4C5E-9E60-84A42C723D2D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
   DTS:LocaleID="1046"
   DTS:ObjectName="CARGA_FATO"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{85C8E20B-F04B-45BC-97AE-5FB0A3C5D17A}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{A0020A3A-1641-46A1-87FA-188C4374E586}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -94,7 +94,7 @@
                       dataType="System.String"
                       description="O comando SQL a ser executado."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.String"
                       description="A variável que contém o comando SQL a ser executado."
@@ -398,7 +398,7 @@
                       dataType="System.String"
                       description="O comando SQL a ser executado."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
@@ -661,9 +661,24 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\CARGA DW\Tarefa Executar SQL"
+          TopLeft="32.3142940711006,43.3529438040249" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="244,149.6"
+          Size="244,192.8"
+          Id="Package\CARGA DW"
+          TopLeft="459.285722107304,114.705883961648" />
+        <NodeLayout
           Size="156.8,41.6"
           Id="Package\CARGA STAGE\ST_FATO"
           TopLeft="60.1571508247025,122.605885784849" />
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\CARGA STAGE\TRUNCATE ST_FATO"
+          TopLeft="53.7285797975503,21.4882377286271" />
         <EdgeLayout
           Id="Package\CARGA STAGE.PrecedenceConstraints[Restrição]"
           TopLeft="140.542865311126,63.0882377286271">
@@ -686,10 +701,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177.6,41.6"
-          Id="Package\CARGA STAGE\TRUNCATE ST_FATO"
-          TopLeft="53.7285797975503,21.4882377286271" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -697,43 +708,20 @@
           Size="264,262.4"
           Id="Package\CARGA STAGE"
           TopLeft="64.2857153804934,85.6470600246971" />
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\CARGA DW\Tarefa Executar SQL"
-          TopLeft="32.3142940711006,43.3529438040249" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="244,149.6"
-          Size="244,192.8"
-          Id="Package\CARGA DW"
-          TopLeft="458.571436380854,100.94117788625" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restrição]"
-          TopLeft="328.285715380493,216.847060024697">
+          TopLeft="328.285715380493,213.976471993172">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="130.28572100036,-19.5058821384469"
+              EndConnector="131.00000672681,0"
               Start="0,0"
-              End="122.78572100036,-19.5058821384469">
+              End="123.50000672681,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="61.1428605001801,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="61.1428605001801,0"
-                    Point2="65.1428605001801,0"
-                    Point3="65.1428605001801,-4" />
-                  <mssgle:LineSegment
-                    End="65.1428605001801,-15.5058821384469" />
-                  <mssgle:CubicBezierSegment
-                    Point1="65.1428605001801,-15.5058821384469"
-                    Point2="65.1428605001801,-19.5058821384469"
-                    Point3="69.1428605001801,-19.5058821384469" />
-                  <mssgle:LineSegment
-                    End="122.78572100036,-19.5058821384469" />
+                    End="123.50000672681,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

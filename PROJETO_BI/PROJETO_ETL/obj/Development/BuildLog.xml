@@ -2,8 +2,8 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>PROJETO_ETL</Name>
-    <LastWriteTime>2022-02-07T18:48:15.6495671Z</LastWriteTime>
-    <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    <LastWriteTime>2022-02-14T20:27:12.1854105Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>

@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Report Include="RelatorioProdutosCubo.rdl" />
+    <Report Include="RelatorioRegiaoVendas.rdl" />
     <Report Include="Rel_Clientes.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
