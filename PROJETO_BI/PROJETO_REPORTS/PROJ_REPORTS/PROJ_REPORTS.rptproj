@@ -22,11 +22,11 @@
     <OverwriteDataSources>False</OverwriteDataSources>
     <TargetServerVersion>SSRS2016</TargetServerVersion>
     <Platform>Win32</Platform>
-    <TargetReportFolder>PROJ_REPORTS</TargetReportFolder>
+    <TargetReportFolder>Relatorios de BI Allan</TargetReportFolder>
     <TargetDatasetFolder>Datasets</TargetDatasetFolder>
     <TargetDatasourceFolder>Data Sources</TargetDatasourceFolder>
     <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
-    <TargetServerURL>http://localhost/reportserver</TargetServerURL>
+    <TargetServerURL>http://v-allandeo-ms/allan</TargetServerURL>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <FullPath>Release</FullPath>
@@ -53,9 +53,12 @@
     <DataSource Include="DS_DW.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="Copy of Rel_VendedorTempo.rdl" />
     <Report Include="RelatorioProdutosCubo.rdl" />
     <Report Include="RelatorioRegiaoVendas.rdl" />
     <Report Include="Rel_Clientes.rdl" />
+    <Report Include="Rel_FornecedoresANO.rdl" />
+    <Report Include="Rel_VendedorTempo.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
